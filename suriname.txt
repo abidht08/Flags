@@ -1,0 +1,114 @@
+/*
+ * GLUT Shapes Demo
+ *
+ * Written by Nigel Stewart November 2003
+ *
+ * This program is test harness for the sphere, cone
+ * and torus shapes in GLUT.
+ *
+ * Spinning wireframe and smooth shaded shapes are
+ * displayed until the ESC or q key is pressed.  The
+ * number of geometry stacks and slices can be adjusted
+ * using the + and - keys.
+ */
+
+
+
+
+
+#include<windows.h>
+#include<GL/glut.h>
+void Draw()
+{
+glClear(GL_COLOR_BUFFER_BIT);
+//background color
+
+
+
+glColor3ub(255,255,255);
+glBegin(GL_QUADS);
+glVertex2f(-50,25);
+glVertex2f(50,25);
+glVertex2f(50,-25);
+glVertex2f(-50,-25);
+
+glEnd();
+glFlush();
+
+//1st green quads
+glColor3ub(56,126,63);
+glBegin(GL_QUADS);
+glVertex2f(-50,15);
+glVertex2f(-50,25);
+glVertex2f(50,25);
+glVertex2f(50,15);
+
+glEnd();
+glFlush();
+
+
+//red quad
+glColor3ub(180,10,46);
+glBegin(GL_QUADS);
+glVertex2f(-50,10);
+glVertex2f(-50,-10);
+glVertex2f(50,-10);
+glVertex2f(50,10);
+
+glEnd();
+glFlush();
+
+
+glColor3ub(56,126,63);
+glBegin(GL_QUADS);
+glVertex2f(-50,-15);
+glVertex2f(-50,-25);
+glVertex2f(50,-25);
+glVertex2f(50,-15);
+
+glEnd();
+glFlush();
+
+///Star polygon
+glColor3ub(236,200,28);
+glBegin(GL_POLYGON);
+glVertex2f(0,8);
+glVertex2f(-6,-8);
+glVertex2f(0,-5);
+glVertex2f(6,-8);
+glEnd();
+glFlush();
+
+
+///Star triangle
+glColor3ub(236,200,28);
+glBegin(GL_TRIANGLES);
+glVertex2f(-9,1.5);
+glVertex2f(9,1.5);
+glVertex2f(0,-5);
+glEnd();
+glFlush();
+
+}
+
+void Initialize()
+{
+//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+gluOrtho2D(-50.0, 50.0, -25.0, 25.0);
+}
+
+
+int main(int Argc, char** Argv)
+{
+glutInit(&Argc, Argv);
+glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+glutInitWindowSize(1200,600);
+glutInitWindowPosition(300,300);
+glutCreateWindow("Flag of Suriname");
+Initialize();
+glutDisplayFunc(Draw);
+glutMainLoop();
+return 0;
+}

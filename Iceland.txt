@@ -1,0 +1,104 @@
+/*
+ * GLUT Shapes Demo
+ *
+ * Written by Nigel Stewart November 2003
+ *
+ * This program is test harness for the sphere, cone
+ * and torus shapes in GLUT.
+ *
+ * Spinning wireframe and smooth shaded shapes are
+ * displayed until the ESC or q key is pressed.  The
+ * number of geometry stacks and slices can be adjusted
+ * using the + and - keys.
+ */
+
+
+
+
+
+#include<windows.h>
+#include<GL/glut.h>
+void Draw()
+{
+glClear(GL_COLOR_BUFFER_BIT);
+
+glColor3ub(0,0,204);
+glBegin(GL_QUADS);
+glVertex2d(50.0,25.0);
+glVertex2d(50.0,-25.0);
+glVertex2d(-50.0,-25.0);
+glVertex2d(-50.0,25.0);
+glEnd();
+glFlush();
+
+
+//white line
+glColor3ub(255,255,255);
+glBegin(GL_QUADS);
+glVertex2f(-50,5);
+glVertex2f(50,5);
+glVertex2f(50,-5);
+glVertex2f(-50,-5);
+glEnd();
+glFlush();
+
+//horizental white line
+glColor3ub(255,255,255);
+glBegin(GL_QUADS);
+glVertex2f(-10,25);
+glVertex2f(-10,-25);
+glVertex2f(-20,-25);
+glVertex2f(-20,25);
+glEnd();
+glFlush();
+//red step
+
+glColor3ub(239,43,45);
+glBegin(GL_QUADS);
+glVertex2f(-12,25);
+glVertex2f(-12,-25);
+glVertex2f(-18,-25);
+glVertex2f(-18,25);
+glEnd();
+glFlush();
+
+
+//Blue 2 step
+
+glColor3ub(239,43,45);
+glBegin(GL_QUADS);
+glVertex2f(-50,3);
+glVertex2f(50,3);
+glVertex2f(50,-3);
+glVertex2f(-50,-3);
+glEnd();
+glFlush();
+
+
+
+
+
+
+
+
+}
+
+void Initialize()
+{
+//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+gluOrtho2D(-50.0, 50.0, -25.0, 25.0);
+}
+int main(int Argc, char** Argv)
+{
+glutInit(&Argc, Argv);
+glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+glutInitWindowSize(1200,600);
+glutInitWindowPosition(300,300);
+glutCreateWindow("Flag of Iceland");
+Initialize();
+glutDisplayFunc(Draw);
+glutMainLoop();
+return 0;
+}

@@ -1,0 +1,137 @@
+/*
+ * GLUT Shapes Demo
+ *
+ * Written by Nigel Stewart November 2003
+ *
+ * This program is test harness for the sphere, cone
+ * and torus shapes in GLUT.
+ *
+ * Spinning wireframe and smooth shaded shapes are
+ * displayed until the ESC or q key is pressed.  The
+ * number of geometry stacks and slices can be adjusted
+ * using the + and - keys.
+ */
+
+
+
+
+
+#include<windows.h>
+#include<GL/glut.h>
+void Draw()
+{
+glClear(GL_COLOR_BUFFER_BIT);
+
+glColor3ub(255,255,255);
+glBegin(GL_QUADS);
+glVertex2d(50.0,25.0);
+glVertex2d(50.0,-25.0);
+glVertex2d(-50.0,-25.0);
+glVertex2d(-50.0,25.0);
+glEnd();
+glFlush();
+
+
+
+//red
+glColor3ub(206,17,38);
+glBegin(GL_QUADS);
+glVertex2f(50,25);
+glVertex2f(50,8.33);
+glVertex2f(-50,8.33);
+glVertex2f(-50,25);
+glEnd();
+glFlush();
+
+
+glFlush();
+
+//black
+glColor3ub(0,0,0);
+glBegin(GL_QUADS);
+glVertex2f(50,-8.33);
+glVertex2f(50,-25);
+glVertex2f(-50,-25);
+glVertex2f(-50,-8.33);
+glEnd();
+glFlush();
+
+
+glFlush();
+
+
+
+
+//star Drawing 1
+glColor3ub(0,122,61);
+
+glBegin(GL_POLYGON);
+//1
+glVertex2f(-10,7);
+glVertex2f(-15,-7);
+glVertex2f(-10,-3);
+glVertex2f(-5,-7);
+glVertex2f(-10,7);
+glEnd();
+glFlush();
+
+glColor3ub(0,122,61);
+
+glBegin(GL_TRIANGLES);
+//1
+glVertex2f(-18,1.5);
+glVertex2f(-10,-3);
+glVertex2f(-2,1.5);
+
+glEnd();
+glFlush();
+
+
+
+//star Drawing 2
+glColor3ub(0,122,61);
+
+glBegin(GL_POLYGON);
+//1
+glVertex2f(15,7);
+glVertex2f(10,-7);
+glVertex2f(15,-3);
+glVertex2f(20,-7);
+glVertex2f(15,7);
+glEnd();
+glFlush();
+
+glColor3ub(0,122,61);
+
+glBegin(GL_TRIANGLES);
+glVertex2f(7,1.5);
+glVertex2f(23,1.5);
+glVertex2f(15,-3);
+
+
+
+glEnd();
+glFlush();
+
+
+}
+
+void Initialize()
+{
+//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+gluOrtho2D(-50.0, 50.0, -25.0, 25.0);
+}
+int main(int Argc, char** Argv)
+{
+glutInit(&Argc, Argv);
+glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+glutInitWindowSize(1200,600);
+glutInitWindowPosition(300,300);
+glutCreateWindow("Flag of Syria");
+Initialize();
+glutDisplayFunc(Draw);
+glutMainLoop();
+return 0;
+}

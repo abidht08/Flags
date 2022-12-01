@@ -1,0 +1,164 @@
+/*
+ * GLUT Shapes Demo
+ *
+ * Written by Nigel Stewart November 2003
+ *
+ * This program is test harness for the sphere, cone
+ * and torus shapes in GLUT.
+ *
+ * Spinning wireframe and smooth shaded shapes are
+ * displayed until the ESC or q key is pressed.  The
+ * number of geometry stacks and slices can be adjusted
+ * using the + and - keys.
+ */
+
+
+
+
+
+#include<windows.h>
+#include<GL/glut.h>
+#include<math.h>
+void Draw()
+{
+
+    float theta;
+glClear(GL_COLOR_BUFFER_BIT);
+//white background
+
+//red background
+glColor3ub(238,27,46);
+glBegin(GL_QUADS);
+glVertex2d(50.0,25.0);
+glVertex2d(50.0,-25.0);
+glVertex2d(-50.0,-25.0);
+glVertex2d(-50.0,25.0);
+glEnd();
+glFlush();
+
+
+
+glColor3ub(255,229,18);
+glBegin(GL_POLYGON);
+for(int i=0;i<360;i++){
+theta=i*3.142/180;
+glVertex2f(10*cos(theta),10*sin(theta));
+}
+glEnd();
+glFlush();
+//angle 1
+glColor3ub(255,229,18);
+glBegin(GL_QUADS);
+glVertex2f(-50.0,25.0);
+glVertex2f(-35,25);
+glVertex2f(-9.3,6.5);
+glVertex2f(-10.3,5);
+
+glEnd();
+glFlush();
+
+
+//angle 2
+glColor3ub(255,229,18);
+glBegin(GL_QUADS);
+glVertex2f(50.0,-25.0);
+glVertex2f(35,-25);
+glVertex2f(9.3,-6.5);
+glVertex2f(10.3,-5);
+
+glEnd();
+glFlush();
+
+
+//angle 3
+glColor3ub(255,229,18);
+glBegin(GL_POLYGON);
+glVertex2f(-50,5);
+glVertex2f(-50,-5);
+glVertex2f(-11.2,-1);
+glVertex2f(-11.2,1);
+
+glEnd();
+glFlush();
+
+
+//angle 4
+glColor3ub(255,229,18);
+glBegin(GL_POLYGON);
+glVertex2f(50,5);
+glVertex2f(50,-5);
+glVertex2f(11.2,-1);
+glVertex2f(11.2,1);
+
+glEnd();
+glFlush();
+
+
+//angle 5
+glColor3ub(255,229,18);
+glBegin(GL_POLYGON);
+glVertex2f(-5,25);
+glVertex2f(5,25);
+glVertex2f(2,11);
+glVertex2f(-2,11);
+
+glEnd();
+glFlush();
+
+
+//angle 6
+glColor3ub(255,229,18);
+glBegin(GL_POLYGON);
+glVertex2f(-5,-25);
+glVertex2f(5,-25);
+glVertex2f(2,-11);
+glVertex2f(-2,-11);
+
+glEnd();
+glFlush();
+
+
+//angle 7
+glColor3ub(255,229,18);
+glBegin(GL_QUADS);
+glVertex2f(50.0,25.0);
+glVertex2f(35,25);
+glVertex2f(9.3,6.5);
+glVertex2f(10.3,5);
+
+glEnd();
+glFlush();
+
+
+
+//angle 8
+glColor3ub(255,229,18);
+glBegin(GL_QUADS);
+glVertex2f(-50.0,-25.0);
+glVertex2f(-35,-25);
+glVertex2f(-9.3,-6.5);
+glVertex2f(-10.3,-5);
+
+glEnd();
+glFlush();
+}
+
+void Initialize()
+{
+//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+gluOrtho2D(-50.0, 50.0, -25.0, 25.0);
+}
+int main(int Argc, char** Argv)
+{
+glutInit(&Argc, Argv);
+glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+glutInitWindowSize(1100,600);
+glutInitWindowPosition(300,300);
+glutCreateWindow("Flag of Marcedonia");
+Initialize();
+glutDisplayFunc(Draw);
+glutMainLoop();
+return 0;
+}

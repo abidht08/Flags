@@ -1,0 +1,221 @@
+/*
+ * GLUT Shapes Demo
+ *
+ * Written by Nigel Stewart November 2003
+ *
+ * This program is test harness for the sphere, cone
+ * and torus shapes in GLUT.
+ *
+ * Spinning wireframe and smooth shaded shapes are
+ * displayed until the ESC or q key is pressed.  The
+ * number of geometry stacks and slices can be adjusted
+ * using the + and - keys.
+ */
+
+
+
+
+
+#include<windows.h>
+#include<GL/glut.h>
+void Draw()
+{
+glClear(GL_COLOR_BUFFER_BIT);
+
+glColor3ub(255,255,255);
+glBegin(GL_QUADS);
+glVertex2d(50.0,25.0);
+glVertex2d(50.0,-25.0);
+glVertex2d(-50.0,-25.0);
+glVertex2d(-50.0,25.0);
+glEnd();
+glFlush();
+
+
+//blue line 1
+glColor3ub(1,56,183);
+glBegin(GL_QUADS);
+glVertex2f(-50,20);
+
+glVertex2f(50,20);
+glVertex2f(50,12);
+glVertex2f(-50,12);
+glEnd();
+glFlush();
+
+
+//blue line 2
+glColor3ub(1,56,183);
+glBegin(GL_QUADS);
+glVertex2f(-50,-20);
+
+glVertex2f(50,-20);
+glVertex2f(50,-12);
+glVertex2f(-50,-12);
+glEnd();
+glFlush();
+
+//triangle 2
+
+/*glColor3ub(1,56,183);
+glBegin(GL_POLYGON);
+
+glVertex2f(-10.5,5);
+glVertex2f(10.5,5);
+glVertex2f(0,-10.5);
+glVertex2f(-10.5,5);
+glEnd();
+glFlush();
+
+
+
+//triangle angle 2
+glColor3ub(255,255,255);
+glBegin(GL_TRIANGLES);
+glVertex2f(-8.5,2.5);
+
+glVertex2f(8.5,2.5);
+glVertex2f(0,-8);
+glVertex2f(-8,2.5);
+glEnd();
+glFlush();
+
+*/
+
+//triangle 1
+
+glColor3ub(1,56,183);
+glBegin(GL_POLYGON);
+glVertex2f(0,10.5);
+
+glVertex2f(-10.5,-6.3);
+glVertex2f(10.5,-6.3);
+glVertex2f(0,10.5);
+
+glEnd();
+glFlush();
+
+//triangle angle 1
+/*glColor3ub(255,255,255);
+glBegin(GL_TRIANGLES);
+glVertex2f(0,8);
+
+glVertex2f(-8,-5);
+glVertex2f(8,-5);
+glVertex2f(0,8);
+glEnd();
+glFlush();
+*/
+
+
+
+//triangle 2
+
+glColor3ub(1,56,183);
+glBegin(GL_POLYGON);
+
+glVertex2f(-10.5,5);
+glVertex2f(10.5,5);
+glVertex2f(0,-10.5);
+glVertex2f(-10.5,5);
+glEnd();
+glFlush();
+
+//white polygon
+glColor3ub(255,255,255);
+glBegin(GL_POLYGON);
+
+glVertex2f(-5,-0.5);
+glVertex2f(-2.5,3);
+glVertex2f(2.5,3);
+glVertex2f(5,-0.5);
+glVertex2f(2.5,-4.5);
+glVertex2f(-2.5,-4.5);
+glVertex2f(-5,-0.5);
+glEnd();
+glFlush();
+
+
+//1st white triangle
+glColor3ub(255,255,255);
+glBegin(GL_TRIANGLES);
+
+glVertex2f(0,8);
+glVertex2f(-1.5,5);
+glVertex2f(1.5,5);
+
+glEnd();
+glFlush();
+
+//2nd white triangle
+glColor3ub(255,255,255);
+glBegin(GL_TRIANGLES);
+
+glVertex2f(0,-8.5);
+glVertex2f(-1.5,-6.2);
+glVertex2f(1.5,-6.2);
+glEnd();
+glFlush();
+
+//3rd white triangle
+glColor3ub(255,255,255);
+glBegin(GL_TRIANGLES);
+
+glVertex2f(-8,-4.5);
+glVertex2f(-6,-2.25);
+glVertex2f(-4,-4.5);
+glEnd();
+glFlush();
+
+
+//4rd white triangle
+glColor3ub(255,255,255);
+glBegin(GL_TRIANGLES);
+
+glVertex2f(8,-4.5);
+glVertex2f(6,-2.25);
+glVertex2f(4,-4.5);
+glEnd();
+glFlush();
+
+//5th white triangle
+glColor3ub(255,255,255);
+glBegin(GL_TRIANGLES);
+
+glVertex2f(-6,0.5);
+glVertex2f(-8,3);
+glVertex2f(-4,3);
+glEnd();
+glFlush();
+
+//6th white triangle
+glColor3ub(255,255,255);
+glBegin(GL_TRIANGLES);
+
+glVertex2f(6,0.5);
+glVertex2f(8,3);
+glVertex2f(4,3);
+glEnd();
+glFlush();
+
+}
+
+void Initialize()
+{
+//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+gluOrtho2D(-50.0, 50.0, -25.0, 25.0);
+}
+int main(int Argc, char** Argv)
+{
+glutInit(&Argc, Argv);
+glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+glutInitWindowSize(1200,600);
+glutInitWindowPosition(300,300);
+glutCreateWindow("Flag of Isreal");
+Initialize();
+glutDisplayFunc(Draw);
+glutMainLoop();
+return 0;
+}

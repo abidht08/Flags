@@ -1,0 +1,159 @@
+/*
+ * GLUT Shapes Demo
+ *
+ * Written by Nigel Stewart November 2003
+ *
+ * This program is test harness for the sphere, cone
+ * and torus shapes in GLUT.
+ *
+ * Spinning wireframe and smooth shaded shapes are
+ * displayed until the ESC or q key is pressed.  The
+ * number of geometry stacks and slices can be adjusted
+ * using the + and - keys.
+ */
+
+
+
+
+
+#include<windows.h>
+#include<GL/glut.h>
+void Draw()
+{
+glClear(GL_COLOR_BUFFER_BIT);
+
+glColor3ub(13,59,153);
+glBegin(GL_QUADS);
+glVertex2d(50.0,25.0);
+glVertex2d(50.0,-25.0);
+glVertex2d(-50.0,-25.0);
+glVertex2d(-50.0,25.0);
+glEnd();
+glFlush();
+
+
+
+
+
+
+
+//star Drawing 1
+glColor3ub(255,255,255);
+
+glBegin(GL_POLYGON);
+//1
+
+glVertex2f(0,16);
+glVertex2f(-2.5,9);
+glVertex2f(0,11);
+glVertex2f(2.5,9);
+glVertex2f(0,16);
+glEnd();
+glFlush();
+
+
+glColor3ub(255,255,255);
+glBegin(GL_TRIANGLES);
+glVertex2f(-4,13);
+glVertex2f(4,13);
+glVertex2f(0,11);
+glEnd();
+glFlush();
+
+//star Drawing 2
+glColor3ub(255,255,255);
+
+glBegin(GL_POLYGON);
+//1
+
+glVertex2f(0,-16);
+glVertex2f(-2.5,-9);
+glVertex2f(0,-11);
+glVertex2f(2.5,-9);
+glVertex2f(0,-16);
+glEnd();
+glFlush();
+
+
+glColor3ub(255,255,255);
+glBegin(GL_TRIANGLES);
+glVertex2f(-4,-13);
+glVertex2f(4,-13);
+glVertex2f(0,-11);
+glEnd();
+glFlush();
+
+
+
+//star Drawing 3
+glColor3ub(255,255,255);
+
+glBegin(GL_POLYGON);
+//1
+
+glVertex2f(-18,5);
+glVertex2f(-19,-2);
+glVertex2f(-17,0);
+glVertex2f(-14,-1);
+glVertex2f(-18,5);
+glEnd();
+glFlush();
+
+
+glColor3ub(255,255,255);
+glBegin(GL_TRIANGLES);
+glVertex2f(-21.5,1.5);
+glVertex2f(-13,3.2);
+glVertex2f(-17,0);
+glEnd();
+glFlush();
+
+
+//star Drawing 4
+glColor3ub(255,255,255);
+
+glBegin(GL_POLYGON);
+//1
+
+glVertex2f(18,5);
+glVertex2f(19,-2);
+glVertex2f(17,0);
+glVertex2f(14,-1);
+glVertex2f(18,5);
+glEnd();
+glFlush();
+
+
+glColor3ub(255,255,255);
+glBegin(GL_TRIANGLES);
+glVertex2f(21.5,1.5);
+glVertex2f(13,3.2);
+glVertex2f(17,0);
+glEnd();
+glFlush();
+
+
+
+
+
+}
+
+void Initialize()
+{
+//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+gluOrtho2D(-50.0, 50.0, -25.0, 25.0);
+}
+int main(int Argc, char** Argv)
+{
+glutInit(&Argc, Argv);
+glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+glutInitWindowSize(1200,600);
+glutInitWindowPosition(300,300);
+glutCreateWindow("Flag of Micronesia");
+Initialize();
+glutDisplayFunc(Draw);
+glutMainLoop();
+return 0;
+}

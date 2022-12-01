@@ -1,0 +1,72 @@
+#include<windows.h>
+#include<GL/glut.h>
+void Draw()
+{
+glClear(GL_COLOR_BUFFER_BIT);
+
+
+//blue background
+glColor3ub(0,172,238);
+glBegin(GL_QUADS);
+glVertex2f(50,25);
+glVertex2f(50,-25);
+glVertex2f(-50,-25);
+glVertex2f(-50,25);
+glEnd();
+glFlush();
+//white
+
+
+
+
+
+glColor3ub(255,255,255);
+glBegin(GL_TRIANGLES);
+glVertex2f(0,15);
+glVertex2f(-13,-15);
+glVertex2f(13,-15);
+glEnd();
+glFlush();
+
+//black
+
+glColor3ub(0,0,0);
+glBegin(GL_TRIANGLES);
+glVertex2f(0,10);
+glVertex2f(-11,-15);
+glVertex2f(11,-15);
+glEnd();
+glFlush();
+
+//yellow
+glColor3ub(253,241,0);
+glBegin(GL_TRIANGLES);
+glVertex2f(0,-2);
+glVertex2f(-13,-15);
+glVertex2f(13,-15);
+glEnd();
+glFlush();
+
+
+
+}
+
+void Initialize()
+{
+//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+gluOrtho2D(-50.0, 50.0, -25.0, 25.0);
+}
+int main(int Argc, char** Argv)
+{
+glutInit(&Argc, Argv);
+glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+glutInitWindowSize(1200,600);
+glutInitWindowPosition(300,300);
+glutCreateWindow("Flag of Saint Lucia");
+Initialize();
+glutDisplayFunc(Draw);
+glutMainLoop();
+return 0;
+}

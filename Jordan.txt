@@ -1,0 +1,130 @@
+/*
+ * GLUT Shapes Demo
+ *
+ * Written by Nigel Stewart November 2003
+ *
+ * This program is test harness for the sphere, cone
+ * and torus shapes in GLUT.
+ *
+ * Spinning wireframe and smooth shaded shapes are
+ * displayed until the ESC or q key is pressed.  The
+ * number of geometry stacks and slices can be adjusted
+ * using the + and - keys.
+ */
+
+
+
+
+
+#include<windows.h>
+#include<GL/glut.h>
+void Draw()
+{
+glClear(GL_COLOR_BUFFER_BIT);
+//white background
+glColor3f(1,1,1);
+glBegin(GL_QUADS);
+glVertex2d(50.0,25.0);
+glVertex2d(50.0,-25.0);
+glVertex2d(-50.0,-25.0);
+glVertex2d(-50.0,25.0);
+glEnd();
+glFlush();
+
+
+
+//black
+glColor3ub(0,0,0);
+glBegin(GL_QUADS);
+glVertex2f(50,25);
+glVertex2f(50,8);
+glVertex2f(-50,8);
+glVertex2f(-50,25);
+glEnd();
+glFlush();
+//green
+glColor3ub(0,122,61);
+glBegin(GL_QUADS);
+glVertex2f(50,-8);
+glVertex2f(50,-25);
+glVertex2f(-50,-25);
+glVertex2f(-50,-8);
+glEnd();
+glFlush();
+//blue3
+
+
+//triangle
+glColor3ub(206,17,39);
+
+glBegin(GL_TRIANGLES);
+glVertex2f(-50,25);
+glVertex2f(-5,0);
+glVertex2f(-50,-25);
+
+glEnd();
+glFlush();
+
+
+//star
+glColor3ub(255,255,255);
+
+glBegin(GL_POLYGON);
+//1
+glVertex2f(-35,5.5);
+glVertex2i(-39,-6);
+glVertex2i(-35,-3);
+glVertex2i(-31,-6);
+glVertex2i(-35,5.5);
+glEnd();
+glFlush();
+
+glColor3ub(255,255,255);
+
+glBegin(GL_POLYGON);
+//1
+
+glVertex2i(-35,-3);
+glVertex2f(-40,2);
+glVertex2i(-35,1.5);
+glVertex2i(-30,2);
+
+glVertex2i(-35,-3);
+glEnd();
+glFlush();
+
+
+glColor3ub(255,255,255);
+
+glBegin(GL_TRIANGLES);
+//1
+glVertex2f(-41,-2.5);
+glVertex2f(-29,-2.5);
+glVertex2i(-35,2);
+
+glEnd();
+glFlush();
+
+
+
+}
+
+void Initialize()
+{
+//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+gluOrtho2D(-50.0, 50.0, -25.0, 25.0);
+}
+int main(int Argc, char** Argv)
+{
+glutInit(&Argc, Argv);
+glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+glutInitWindowSize(1200,600);
+glutInitWindowPosition(300,300);
+glutCreateWindow("Flag of JORDAN");
+Initialize();
+glutDisplayFunc(Draw);
+glutMainLoop();
+return 0;
+}
