@@ -1,0 +1,123 @@
+/*
+ * GLUT Shapes Demo
+ *
+ * Written by Nigel Stewart November 2003
+ *
+ * This program is test harness for the sphere, cone
+ * and torus shapes in GLUT.
+ *
+ * Spinning wireframe and smooth shaded shapes are
+ * displayed until the ESC or q key is pressed.  The
+ * number of geometry stacks and slices can be adjusted
+ * using the + and - keys.
+ */
+
+
+
+
+
+#include<windows.h>
+#include<GL/glut.h>
+void Draw()
+{
+
+//blue rectangle
+glColor3ub(0,47,129);
+glBegin(GL_QUADS);
+glVertex2f(50,25);
+glVertex2f(50,12.5);
+glVertex2f(-50,12.5);
+glVertex2f(-50,25);
+glEnd();
+glFlush();
+
+//white rectangle
+glColor3ub(255,255,255);
+glBegin(GL_QUADS);
+glVertex2f(50,12.5);
+glVertex2f(50,0);
+glVertex2f(-50,0);
+glVertex2f(-50,12.5);
+glEnd();
+glFlush();
+
+//green rectangle
+glColor3ub(41,151,39);
+glBegin(GL_QUADS);
+glVertex2f(50,0);
+glVertex2f(50,-12.5);
+glVertex2f(-50,-12.5);
+glVertex2f(-50,0);
+glEnd();
+glFlush();
+
+//yellow rectangle
+glColor3ub(254,206,0);
+glBegin(GL_QUADS);
+glVertex2f(50,-12.5);
+glVertex2f(50,-25);
+glVertex2f(-50,-25);
+glVertex2f(-50,-12.5);
+glEnd();
+glFlush();
+
+//red  horizontal rectangle
+glColor3ub(210,16,51);
+glBegin(GL_QUADS);
+glVertex2f(5,25);
+glVertex2f(5,-25);
+glVertex2f(-5,-25);
+glVertex2f(-5,25);
+glEnd();
+glFlush();
+
+
+
+//star Drawing
+
+glColor3ub(254,206,0);
+glBegin(GL_POLYGON);
+//1
+glVertex2f(-37.5,24);
+glVertex2f(-42,13.54);
+glVertex2f(-37.5,15.54);
+glVertex2f(-33,13.54);
+glVertex2f(-37.5,24);
+glEnd();
+glFlush();
+
+
+//2
+glColor3ub(254,206,0);
+glBegin(GL_TRIANGLES);
+glVertex2f(-45,19.44);
+glVertex2f(-30,19.44);
+glVertex2f(-37.5,15.54);
+glVertex2f(-45,19.44);
+
+glEnd();
+glFlush();
+
+
+
+}
+
+void Initialize()
+{
+//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+gluOrtho2D(-50.0, 50.0, -25.0, 25.0);
+}
+int main(int Argc, char** Argv)
+{
+glutInit(&Argc, Argv);
+glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+glutInitWindowSize(1200,600);
+glutInitWindowPosition(300,300);
+glutCreateWindow("Flag of Central African Republic");
+Initialize();
+glutDisplayFunc(Draw);
+glutMainLoop();
+return 0;
+}
